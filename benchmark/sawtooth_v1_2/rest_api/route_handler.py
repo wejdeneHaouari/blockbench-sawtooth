@@ -38,7 +38,7 @@ class RouteHandler(object):
         if len(args) != 2:
             raise ApiBadRequest("write function must invoke two parameters")
         name = args[0]
-        
+
         value = args[1]
 
 
