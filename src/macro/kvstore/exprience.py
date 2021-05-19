@@ -6,9 +6,13 @@ import sys
 
 # running experiments
 EXPS = [(1, 20)]
-TARGET = "ethereum"
+TARGET_eth = "ethereum"
+TARGET_fab = "fabric-v2.2"
+TARGET = "sawtooth-v1.2"
 WORKLOAD = "workloada.spec"
-ENDPOINT = "localhost:8545"
+ENDPOINT_fac = "localhost:8800,localhost:8801"
+ENDPOINT = "localhost:9001,localhost:8000"
+ENDPOINT_eth = "localhost:8545"
 SC = "ycsb"
 WAIT_TIME = 20
 IS_INT = 1
