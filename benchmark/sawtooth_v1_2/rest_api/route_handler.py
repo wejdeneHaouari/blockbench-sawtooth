@@ -38,10 +38,9 @@ class RouteHandler(object):
         if len(args) != 2:
             raise ApiBadRequest("write function must invoke two parameters")
         name = args[0]
-        try:
-            value = args[1]
-        except ValueError:
-            raise ApiBadRequest("value must be int")
+        
+        value = args[1]
+
 
         response = self._client.set(name, value)
         end = time.time() - start
