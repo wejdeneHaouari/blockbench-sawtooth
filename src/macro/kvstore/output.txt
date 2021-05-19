@@ -1,137 +1,72 @@
 in intkey
-to address: 0x39c7f1422166a366c8a158e0628f8a0fa07e1d7e
-Smart contract ycsb deploy ready
-Current TIP = 10
-height 10
-polled block 10 : 0 txs 
+Make sure to deploy YCSB chaincode based on README.md. 
+height 299
+Current TIP = 298
+height 299
+height 298
+polled block 298 : 52 txs 
+In the last 2s, tx count = 0 latency = 0 outstanding request = 0
+height 299
+height 298
+In the last 2s, tx count = 0 latency = 0 outstanding request = 75
+height 299
+height 298
+In the last 2s, tx count = 0 latency = 0 outstanding request = 140
+height 300
+height 299
+polled block 299 : 4 txs 
+In the last 2s, tx count = 4 latency = 23.7711 outstanding request = 195
+height 300
+height 299
+In the last 2s, tx count = 0 latency = 0 outstanding request = 259
+height 301
+height 300
+polled block 300 : 30 txs 
+In the last 2s, tx count = 30 latency = 284.59 outstanding request = 285
+height 301
+height 300
+In the last 2s, tx count = 0 latency = 0 outstanding request = 354
+height 302
+height 301
+polled block 301 : 31 txs 
+In the last 2s, tx count = 31 latency = 393.694 outstanding request = 381
+height 303
+height 302
+polled block 302 : 26 txs 
+In the last 2s, tx count = 26 latency = 362.266 outstanding request = 371
+height 304
+height 303
+polled block 303 : 47 txs 
+In the last 2s, tx count = 47 latency = 703.167 outstanding request = 324
+height 304
+height 303
+In the last 2s, tx count = 0 latency = 0 outstanding request = 324
+height 306
+height 305
+polled block 304 : 100 txs 
+polled block 305 : 30 txs 
+In the last 2s, tx count = 130 latency = 2069.03 outstanding request = 194
+height 306
+height 305
+In the last 2s, tx count = 0 latency = 0 outstanding request = 194
+height 308
+height 307
+polled block 306 : 100 txs 
+polled block 307 : 34 txs 
+In the last 2s, tx count = 134 latency = 2094.38 outstanding request = 60
+height 308
+height 307
+In the last 2s, tx count = 0 latency = 0 outstanding request = 60
+height 309
+height 308
+polled block 308 : 59 txs 
+In the last 2s, tx count = 59 latency = 949.781 outstanding request = 1
+height 309
+height 308
 In the last 2s, tx count = 0 latency = 0 outstanding request = 1
-height 10
-In the last 2s, tx count = 0 latency = 0 outstanding request = 34
-height 11
-polled block 11 : 0 txs 
-In the last 2s, tx count = 0 latency = 0 outstanding request = 68
-height 11
-In the last 2s, tx count = 0 latency = 0 outstanding request = 102
-height 11
-In the last 2s, tx count = 0 latency = 0 outstanding request = 136
-height 11
-In the last 2s, tx count = 0 latency = 0 outstanding request = 170
-height 11
-In the last 2s, tx count = 0 latency = 0 outstanding request = 203
-height 11
-In the last 2s, tx count = 0 latency = 0 outstanding request = 237
-height 11
-In the last 2s, tx count = 0 latency = 0 outstanding request = 271
-height 12
-polled block 12 : 249 txs 
-In the last 2s, tx count = 249 latency = 2663.98 outstanding request = 57
-height 12
-In the last 2s, tx count = 0 latency = 0 outstanding request = 91
-height 12
-In the last 2s, tx count = 0 latency = 0 outstanding request = 125
-height 12
-In the last 2s, tx count = 0 latency = 0 outstanding request = 159
-height 12
-In the last 2s, tx count = 0 latency = 0 outstanding request = 193
-height 12
-In the last 2s, tx count = 0 latency = 0 outstanding request = 227
-height 12
-In the last 2s, tx count = 0 latency = 0 outstanding request = 261
-height 13
-polled block 13 : 0 txs 
-In the last 2s, tx count = 0 latency = 0 outstanding request = 295
-height 13
-In the last 2s, tx count = 0 latency = 0 outstanding request = 328
-height 13
-In the last 2s, tx count = 0 latency = 0 outstanding request = 362
-height 13
-In the last 2s, tx count = 0 latency = 0 outstanding request = 396
-height 13
-In the last 2s, tx count = 0 latency = 0 outstanding request = 430
-height 13
-In the last 2s, tx count = 0 latency = 0 outstanding request = 464
-height 13
-In the last 2s, tx count = 0 latency = 0 outstanding request = 497
-height 13
-In the last 2s, tx count = 0 latency = 0 outstanding request = 531
-height 14
-polled block 14 : 0 txs 
-In the last 2s, tx count = 0 latency = 0 outstanding request = 564
-height 14
-In the last 2s, tx count = 0 latency = 0 outstanding request = 598
-height 14
-In the last 2s, tx count = 0 latency = 0 outstanding request = 631
-height 14
-In the last 2s, tx count = 0 latency = 0 outstanding request = 665
-height 14
-In the last 2s, tx count = 0 latency = 0 outstanding request = 699
-height 14
-In the last 2s, tx count = 0 latency = 0 outstanding request = 732
-height 14
-In the last 2s, tx count = 0 latency = 0 outstanding request = 751
-height 15
-polled block 15 : 0 txs 
-In the last 2s, tx count = 0 latency = 0 outstanding request = 751
-height 15
-In the last 2s, tx count = 0 latency = 0 outstanding request = 751
-height 15
-In the last 2s, tx count = 0 latency = 0 outstanding request = 751
-height 15
-In the last 2s, tx count = 0 latency = 0 outstanding request = 751
-height 15
-In the last 2s, tx count = 0 latency = 0 outstanding request = 751
-height 15
-In the last 2s, tx count = 0 latency = 0 outstanding request = 751
-height 15
-In the last 2s, tx count = 0 latency = 0 outstanding request = 751
-height 15
-In the last 2s, tx count = 0 latency = 0 outstanding request = 751
-height 16
-polled block 16 : 751 txs 
-In the last 2s, tx count = 751 latency = 30927.5 outstanding request = 0
-height 16
-In the last 2s, tx count = 0 latency = 0 outstanding request = 0
-height 16
-In the last 2s, tx count = 0 latency = 0 outstanding request = 0
-height 16
-In the last 2s, tx count = 0 latency = 0 outstanding request = 0
-height 16
-In the last 2s, tx count = 0 latency = 0 outstanding request = 0
-height 16
-In the last 2s, tx count = 0 latency = 0 outstanding request = 0
-height 16
-In the last 2s, tx count = 0 latency = 0 outstanding request = 0
-height 17
-polled block 17 : 0 txs 
-In the last 2s, tx count = 0 latency = 0 outstanding request = 0
-height 17
-In the last 2s, tx count = 0 latency = 0 outstanding request = 0
-height 17
-In the last 2s, tx count = 0 latency = 0 outstanding request = 0
-height 17
-In the last 2s, tx count = 0 latency = 0 outstanding request = 0
-height 17
-In the last 2s, tx count = 0 latency = 0 outstanding request = 0
-height 17
-In the last 2s, tx count = 0 latency = 0 outstanding request = 0
-height 17
-In the last 2s, tx count = 0 latency = 0 outstanding request = 0
-height 17
-In the last 2s, tx count = 0 latency = 0 outstanding request = 0
-height 18
-polled block 18 : 0 txs 
-In the last 2s, tx count = 0 latency = 0 outstanding request = 0
-height 18
-In the last 2s, tx count = 0 latency = 0 outstanding request = 0
-height 18
-In the last 2s, tx count = 0 latency = 0 outstanding request = 0
-height 18
-In the last 2s, tx count = 0 latency = 0 outstanding request = 0
-height 18
-In the last 2s, tx count = 0 latency = 0 outstanding request = 0
-height 18
-In the last 2s, tx count = 0 latency = 0 outstanding request = 0
-height 18
-In the last 2s, tx count = 0 latency = 0 outstanding request = 0
-height 18
-In the last 2s, tx count = 0 latency = 0 outstanding request = 0
+height 309
+height 308
+In the last 2s, tx count = 0 latency = 0 outstanding request = 1
+height 309
+height 308
+In the last 2s, tx count = 0 latency = 0 outstanding request = 1

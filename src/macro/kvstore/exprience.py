@@ -5,31 +5,35 @@ import time
 import sys
 
 # running experiments
-EXPS = [(1, 20)]
+EXPS = [(1, 20), (1, 100), (1, 50), (1, 300)]
 TARGET_eth = "ethereum"
-TARGET_fab = "fabric-v2.2"
 TARGET = "sawtooth-v1.2"
 WORKLOAD = "workloada.spec"
-ENDPOINT_fac = "localhost:8800,localhost:8801"
-ENDPOINT = "localhost:9001,localhost:8000"
 ENDPOINT_eth = "localhost:8545"
+ENDPOINT = "localhost:9001,localhost:8000"
 SC = "ycsb"
 WAIT_TIME = 20
-IS_INT = 1
+IS_INT = 0
 OUTPUT_FILE = "output.txt"
 
 
 def run_exp():
     cmd = './driver -db {} -threads {} -P workloads/{} -txrate {} -endpoint {} -wl {} -wt {} -isint {} 2>&1 | tee {}'
 
-    # for t in THREADS:
-    #  for r in RATES:
+
+    start = time.time()
     for (t, r) in EXPS:
-        # run the experiments
-        print("#### ####")
-        print(cmd.format(TARGET, t, WORKLOAD, r, ENDPOINT, SC, WAIT_TIME, IS_INT, OUTPUT_FILE))
-        print("#### ####")
+        print('********************** **********************')
+        begin_exp = time.time() - start
+        print("start = ", begin_exp)
+        print("rate =", r)
         os.system(cmd.format(TARGET, t, WORKLOAD, r, ENDPOINT, SC, WAIT_TIME, IS_INT, OUTPUT_FILE))
+        end_exp = time.time() - start
+        print("end = ", end_exp)
+        print("interval = ", end_exp - begin_exp )
+        
+
+
 
 
 
@@ -40,3 +44,4 @@ if __name__ == '__main__':
    print(2000/interval)
    print(interval)
    print("done")
+
