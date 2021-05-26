@@ -1,4 +1,6 @@
 #!/bin/bash
+nvm i v10.22.0
+sleep 1
 CHANNEL_NAME=mychannel
 CC_NAME=kvstore
 CC_SRC_PATH="../contracts/fabric-v2.2/${CC_NAME}"
@@ -8,18 +10,18 @@ echo "## create channel ##"
 echo "## deploy cc##"
 sleep 2
 ./network.sh deployCC -ccn ${CC_NAME} -ccp ${CC_SRC_PATH}
-echo "adding peer 2 org1"
-./addPeer.sh -o 2 -p 1 -t 8054
-sleep 2
-./deployCC.sh -t 6051 -c mychannel -d kvstore -p 1 -o 2
-sleep 2
-./addPeer.sh -o 1 -p 2 -t 7054
-sleep 2
-./deployCC.sh -t 5051 -c mychannel -d kvstore -p 2 -o 1
-sleep 2
-./addPeer.sh -o 2 -p 2 -t 8054
-sleep 2
-./deployCC.sh -t 4051 -c mychannel -d kvstore -p 2 -o 2
+#echo "adding peer 2 org1"
+#./addPeer.sh -o 2 -p 1 -t 8054
+#sleep 2
+#./deployCC.sh -t 6051 -c mychannel -d kvstore -p 1 -o 2
+#sleep 2
+#./addPeer.sh -o 1 -p 2 -t 7054
+#sleep 2
+#./deployCC.sh -t 5051 -c mychannel -d kvstore -p 2 -o 1
+#sleep 2
+#./addPeer.sh -o 2 -p 2 -t 8054
+#sleep 2
+#./deployCC.sh -t 4051 -c mychannel -d kvstore -p 2 -o 2
 echo "services"
 cd services
 node enrollAdmin.js

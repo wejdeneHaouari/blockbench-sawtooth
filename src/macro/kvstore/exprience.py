@@ -4,8 +4,7 @@ import os
 import subprocess
 import time
 import sys
-from threading import Thread, Event
-import psutil
+from threading import Event
 import signal
 
 # running experiments
@@ -108,4 +107,6 @@ if __name__ == '__main__':
         sys.exit(-1)
     saturation()
     print("done")
+
+
 

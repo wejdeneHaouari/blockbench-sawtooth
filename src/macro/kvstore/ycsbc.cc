@@ -62,74 +62,84 @@ int DelegateClient(ycsbc::DB *db, ycsbc::CoreWorkload *wl, const int num_ops,
 // when first started, the block height is start_block_height
 int StatusThread(string dbname, ycsbc::DB *db, double interval,
                  int start_block_height) {
-  int cur_block_height = start_block_height;
+    int cur_block_height = start_block_height;
 
-  long start_time;
-  long end_time;
-  int txcount = 0;
-  long latency;
-  int confirm_duration = 1;
-  if (dbname == "ethereum")
-    confirm_duration = CONFIRM_BLOCK_LENGTH;
-  else if (dbname == "parity")
-    confirm_duration = PARITY_CONFIRM_BLOCK_LENGTH;
-  else
-    confirm_duration = HL_CONFIRM_BLOCK_LENGTH;
+    long start_time;
+    long end_time;
+    int txcount = 0;
+    long latency;
+    int confirm_duration = 1;
+    if (dbname == "ethereum")
+        confirm_duration = CONFIRM_BLOCK_LENGTH;
+    else if (dbname == "parity")
+        confirm_duration = PARITY_CONFIRM_BLOCK_LENGTH;
+    else
+        confirm_duration = HL_CONFIRM_BLOCK_LENGTH;
 
-  while (true) {
-    start_time = utils::time_now();
-    int tip = db->GetTip();
-    if (tip == -1)  // fail
-      utils::sleep(interval);
-      std::cout << "height " << tip <<std::endl;
-     
-    while (cur_block_height + confirm_duration <= tip + 1 ) {
-      vector<string> txs = db->PollTxn(cur_block_height);
-      cout << "polled block " << cur_block_height << " : " << txs.size()
-           << " txs " << endl;
-      cur_block_height++;
-      long block_time = utils::time_now();
-      txlock.lock();
-      for (string tmp : txs) {
-        string s = (dbname == "ethereum" || dbname == "parity")
-                       ? tmp.substr(1, tmp.length() - 2)  // get rid of ""
-                       : tmp;
+    while (true) {
+        start_time = utils::time_now();
+        int tip = db->GetTip();
+        if (tip == -1)  // fail
+            utils::sleep(interval);
+        std::cout << "height " << tip << std::endl;
 
-        size_t found = s.find("\"");
-        if (found != string::npos){
-        // remove "
-         s.erase(0, 1);
+        while (cur_block_height + confirm_duration <= tip + 1) {
+            vector <string> txs = db->PollTxn(cur_block_height);
+            cout << "polled block " << cur_block_height << " : " << txs.size()
+                 << " txs " << endl;
+            cur_block_height++;
+            long block_time = utils::time_now();
+            txlock.lock();
+            for (string tmp : txs) {
+                string s = (dbname == "ethereum" || dbname == "parity")
+                           ? tmp.substr(1, tmp.length() - 2)  // get rid of ""
+                           : tmp;
+
+                size_t found = s.find("\"");
+                if (found != string::npos) {
+                    // remove "
+                    s.erase(0, 1);
+                }
+
+                if (pendingtx.find(s) != pendingtx.end()) {
+                    txcount++;
+                    latency += (block_time - pendingtx[s]);
+                    // then remove
+                    pendingtx.erase(s);
+                }
+
+            }
+
+
+            txlock.unlock();
         }
-        
-        if (pendingtx.find(s) != pendingtx.end()) {
-          txcount++;
-          latency += (block_time - pendingtx[s]);
-          // then remove
-          pendingtx.erase(s);
-        }
-      
-        }
 
-       
-      txlock.unlock();
+        const std::time_t now = std::time(nullptr);
+        const std::tm calendar_time = *std::localtime(std::addressof(now));
+        time_t theTime = time(NULL);
+        struct tm *aTime = localtime(&theTime);
+        cout << "In the last " << interval << "s, tx count = " << txcount
+             << " latency = " << latency / 1000000000.0
+             << " outstanding request = " << pendingtx.size() << endl;
+        cout << "time = " << calendar_time.tm_hour +1 << ":" << calendar_time.tm_min << ":" << calendar_time.tm_sec << endl;
+
+
+
+        txcount = 0;
+        latency = 0;
+
+        end_time = utils::time_now();
+
+        // 2. Get all tx from cur_block_height until tip-CONFIRM_BLOCK_LENGTH
+        // 3. Process the tx, update the stats
+        // 4. Sleep for INTERVAL - (time taken to do 1-3)
+
+        // sleep in nanosecond
+        utils::sleep(interval - (end_time - start_time) / 1000000000.0);
+        // std::this_thread::sleep_for(std::chrono::seconds(5));
     }
-    cout << "In the last " << interval << "s, tx count = " << txcount
-         << " latency = " << latency / 1000000000.0
-         << " outstanding request = " << pendingtx.size() << endl;
-    txcount = 0;
-    latency = 0;
+        return 0;
 
-    end_time = utils::time_now();
-
-    // 2. Get all tx from cur_block_height until tip-CONFIRM_BLOCK_LENGTH
-    // 3. Process the tx, update the stats
-    // 4. Sleep for INTERVAL - (time taken to do 1-3)
-
-    // sleep in nanosecond
-    utils::sleep(interval - (end_time - start_time) / 1000000000.0);
-    // std::this_thread::sleep_for(std::chrono::seconds(5));
-  }
-  return 0;
 }
 
 int main(const int argc, const char *argv[]) {
@@ -287,4 +297,3 @@ void UsageMessage(const char *command) {
 inline bool StrStartWith(const char *str, const char *pre) {
   return strncmp(str, pre, strlen(pre)) == 0;
 }
-
