@@ -15,7 +15,7 @@ def main():
     target = sys.argv[2]
 
     with open(path) as file_in:
-        with open(target, "w") as f, open("block.csv", "w") as b:
+        with open(target, "w") as f, open("results/block.csv", "w") as b:
             f.write("time,txt_count,latency,outstanding\n")
             for line in file_in:
                 block = re.search('polled block (.*) ', line)
