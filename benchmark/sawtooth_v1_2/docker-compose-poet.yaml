@@ -576,14 +576,14 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: password
     restart: always
     ports:
-      - 27017:27017
+      - 27018:27017
 
   bbmanager:
     image: mongo-express
     links:
       - bb
     ports:
-      - 8081:8081
+      - 27019:8081
     restart: always
     environment:
       ME_CONFIG_MONGODB_SERVER: bb
