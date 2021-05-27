@@ -120,8 +120,8 @@ int StatusThread(string dbname, ycsbc::DB *db, double interval,
         struct tm *aTime = localtime(&theTime);
         cout << "In the last " << interval << "s, tx count = " << txcount
              << " latency = " << latency / 1000000000.0
-             << " outstanding request = " << pendingtx.size() << endl;
-        cout << "time = " << calendar_time.tm_hour +1 << ":" << calendar_time.tm_min << ":" << calendar_time.tm_sec << endl;
+             << " outstanding request = " << pendingtx.size()
+         << " time = " << calendar_time.tm_hour << ":" << calendar_time.tm_min << ":" << calendar_time.tm_sec << endl;
 
 
 
