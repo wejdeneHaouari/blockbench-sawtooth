@@ -8,14 +8,14 @@ def main():
     if len(sys.argv) != 3 or sys.argv[1] == '-h':
         print("Usage: %s InputFileName OutputFileName" % sys.argv[0])
         print("Statistics (.cv file) for each workload " + \
-              "will be written to the target fime.")
+              "will be written to the target file.")
         sys.exit(-1)
 
     path = sys.argv[1]
-    target = sys.argv[2]
+    target = 'results/' + sys.argv[2]
 
     with open(path) as file_in:
-        with open(target, "w") as f, open("results/block.csv", "w") as b:
+        with open(target, "a") as f, open("results/block.csv", "a") as b:
             f.write("time,txt_count,latency,outstanding\n")
             for line in file_in:
                 block = re.search('polled block (.*) ', line)

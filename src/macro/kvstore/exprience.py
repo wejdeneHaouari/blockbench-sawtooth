@@ -8,7 +8,7 @@ from threading import Event
 import signal
 
 # running experiments
-EXPS = [(1, 5, 60), (1, 5, 120), (1, 10, 120)]
+EXPS = [(1, 5, 60), (1, 5, 60), (1, 10, 60)]
 SC = "ycsb"
 WAIT_TIME = 20
 IS_INT = 0
@@ -54,7 +54,9 @@ def run_exp_change_total_req():
 
 def send_transactions(i, t, r, o, begin_exp):
     cmd = './driver -db {} -threads {} -P workloads/{} -txrate {} -endpoint {} -wl {} -wt {} -isint {}  | tee {}'
-    OUTPUT_FILE = "logs/" + str(i) + "_" +  str(t) + "_threads_" + str(r) + "_rates" + "_start" + str(begin_exp)
+    # OUTPUT_FILE = "logs/" + str(i) + "_" +  str(t) + "_threads_" + str(r) + "_rates" + "_start" + str(begin_exp) + ".txt"
+
+    OUTPUT_FILE = "logs/" + str(i) + "_threads_" + str(t) + "_rates_" + str(r) + "_timeout_" + str(o) + "_.txt"
     cmd_f = cmd.format(TARGET, t, WORKLOAD, r, ENDPOINT, SC, WAIT_TIME, IS_INT, OUTPUT_FILE)
 
     try:
