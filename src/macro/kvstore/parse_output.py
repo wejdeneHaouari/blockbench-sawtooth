@@ -16,13 +16,17 @@ def main():
 
     with open(path) as file_in:
         with open(target, "a") as f, open("results/block.csv", "a") as b:
-            f.write("time,txt_count,latency,outstanding\n")
             for line in file_in:
                 block = re.search('polled block (.*) ', line)
                 txt_count = re.search('tx count = (.+?) ', line)
                 latency = re.search('latency = (.+?) ', line)
                 outstanding_request = re.search('outstanding request = (.+?) ', line)
                 time = re.search('time = (.*)', line)
+
+                threads = re.search('threads = (.+?) ', line)
+                rates = re.search('rates = (.+?) ', line)
+                timeout = re.search('timeout = (.*)', line)
+
                 if latency and txt_count and outstanding_request and time:
                     txt_count_res = txt_count.group(1)
                     latency_res = latency.group(1)
@@ -33,6 +37,10 @@ def main():
                     block_res = block.group(1)
                     b.write(block_res + "\n")
 
+                if threads and rates and timeout:
+                    f.write("threads,rate,timeout,\n")
+                    f.write(threads.group(1) + "," + rates.group(1) + "," + timeout.group(1) + "," + "\n")
+                    f.write("time,txt_count,latency,outstanding\n")
 
 if __name__ == '__main__':
     main()
