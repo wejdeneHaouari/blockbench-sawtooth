@@ -8,7 +8,7 @@ from threading import Event
 import signal
 
 # running experiments
-EXPS = [(1, 5), (1, 5), (1, 5)]
+EXPS = [(1, 5, 60), (1, 5, 120), (1, 10, 120)]
 SC = "ycsb"
 WAIT_TIME = 20
 IS_INT = 0
@@ -52,7 +52,7 @@ def run_exp_change_total_req():
         i += 1
 
 
-def send_transactions(i, t, r, begin_exp):
+def send_transactions(i, t, r, o, begin_exp):
     cmd = './driver -db {} -threads {} -P workloads/{} -txrate {} -endpoint {} -wl {} -wt {} -isint {}  | tee {}'
     OUTPUT_FILE = "logs/" + str(i) + "_" +  str(t) + "_threads_" + str(r) + "_rates" + "_start" + str(begin_exp)
     cmd_f = cmd.format(TARGET, t, WORKLOAD, r, ENDPOINT, SC, WAIT_TIME, IS_INT, OUTPUT_FILE)
@@ -60,8 +60,9 @@ def send_transactions(i, t, r, begin_exp):
     try:
         process = subprocess.Popen(cmd_f,
                        shell=True, preexec_fn=os.setsid)
-        print('Running in process', process.pid)
-        process.wait(timeout=60)
+        print('Running in process', process.pid, ' rate ', r, ' timeout ', o)
+        ## python version 3.3 or higher
+        process.wait(timeout=o)
     except subprocess.TimeoutExpired:
         print('Timed out - killing', process.pid)
         os.killpg(os.getpgid(process.pid), signal.SIGTERM)
@@ -80,11 +81,11 @@ def timeout_handler(signum, frame):  # Custom signal handler
 def saturation():
     start = time.time()
     i = 0
-    for (t, r) in EXPS:
+    for (t, r, o) in EXPS:
         print("********exp ************", i)
         begin_exp = time.time() - start
         i = i + 1
-        send_transactions(i, t, r, begin_exp)
+        send_transactions(i, t, r,o, begin_exp)
 
 
 if __name__ == '__main__':
