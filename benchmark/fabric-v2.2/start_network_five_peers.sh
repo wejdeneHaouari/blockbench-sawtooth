@@ -1,5 +1,4 @@
 #!/bin/bash
-nvm i v10.22.0
 sleep 1
 CHANNEL_NAME=mychannel
 CC_NAME=kvstore

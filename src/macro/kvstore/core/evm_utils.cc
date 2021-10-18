@@ -309,6 +309,7 @@ void unlock_address(const std::string &endpoint, const std::string &address) {
 std::string deploy_smart_contract(const std::string &endpoint,
                                   const std::string &from_address,
                                   SmartContractType type) {
+  std::cout << "## deploy contract ##" << std::endl;
   std::string txn_data = DEPLOY_SMARTCONTRACT_PREFIX + from_address;
   switch (type) {
     case SmartContractType::KVStore:

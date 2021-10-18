@@ -147,6 +147,9 @@ int main(const int argc, const char *argv[]) {
   string file_name = ParseCommandLine(argc, argv, props);
 
   ycsbc::DB *db = ycsbc::DBFactory::CreateDB(props);
+
+  std::cout << "## create DB ##" << std::endl;
+
   if (!db) {
     cout << "Unknown database name " << props["dbname"] << endl;
     exit(0);

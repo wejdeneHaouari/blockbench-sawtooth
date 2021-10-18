@@ -8,7 +8,7 @@ from threading import Event
 import signal
 
 # running experiments
-EXPS = [(1, 5), (1, 20), (1, 50)]
+EXPS = [(1, 5), (1, 5), (1, 5)]
 SC = "ycsb"
 WAIT_TIME = 20
 IS_INT = 0
@@ -46,7 +46,7 @@ def run_exp_change_total_req():
         end_exp = time.time() - start
         print("end = ", end_exp)
         interval = end_exp - begin_exp
-        if interval > 60:
+        if interval < 60:
             print("sleep ", (60 - interval))
             time.sleep(60 - interval)
         i += 1
@@ -61,7 +61,7 @@ def send_transactions(i, t, r, begin_exp):
         process = subprocess.Popen(cmd_f,
                        shell=True, preexec_fn=os.setsid)
         print('Running in process', process.pid)
-        process.wait(timeout=5)
+        process.wait(timeout=60)
     except subprocess.TimeoutExpired:
         print('Timed out - killing', process.pid)
         os.killpg(os.getpgid(process.pid), signal.SIGTERM)
