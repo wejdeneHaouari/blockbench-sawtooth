@@ -34,18 +34,18 @@ ORG="org${orgN}"
  export CORE_PEER_LOCALMSPID="Org${orgN}MSP"
  export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/${ORG}.example.com/peers/peer0.${ORG}.example.com/tls/ca.crt
  export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/${ORG}.example.com/users/Admin@${ORG}.example.com/msp
- export CORE_PEER_ADDRESS=localhost:7051
+ export CORE_PEER_ADDRESS=172.31.12.127:7051
  export ORDERER_CA=${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
 
 
  echo
  echo "join peer to channel ${CHANNEL_NAME}"
  echo
- CORE_PEER_ADDRESS=localhost:${PORT} peer channel join -b channel-artifacts/${CHANNEL_NAME}.block
- CORE_PEER_ADDRESS=localhost:${PORT} peer channel list
+ CORE_PEER_ADDRESS=172.31.12.127:${PORT} peer channel join -b channel-artifacts/${CHANNEL_NAME}.block
+ CORE_PEER_ADDRESS=172.31.12.127:${PORT} peer channel list
 sleep 10
  echo "install chaincode"
- CORE_PEER_ADDRESS=localhost:${PORT} peer lifecycle chaincode install ${CHAINCODE}.tar.gz
+ CORE_PEER_ADDRESS=172.31.12.127:${PORT} peer lifecycle chaincode install ${CHAINCODE}.tar.gz
 
-#peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls true --cafile $ORDERER_CA -C ${CHANNEL_NAME} -n ${CHAINCODE} --peerAddresses localhost:${PORT} --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls/ca.crt --peerAddresses localhost:9051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt -c '{"Args":["Write","name","Bob"]}'
+#peer chaincode invoke -o 172.31.12.127:7050 --ordererTLSHostnameOverride orderer.example.com --tls true --cafile $ORDERER_CA -C ${CHANNEL_NAME} -n ${CHAINCODE} --peerAddresses 172.31.12.127:${PORT} --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls/ca.crt --peerAddresses 172.31.12.127:9051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt -c '{"Args":["Write","name","Bob"]}'
 #peer chaincode query -C ${CHANNEL_NAME -n ${CHAINCODE -c '{"Args":["Read","name"]}'

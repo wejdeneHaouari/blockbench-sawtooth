@@ -49,7 +49,7 @@ async function getChannel(channelName) {
         await gateway.connect(ccp, 
             { 
             wallet, identity: 'appUser', 
-            discovery: { enabled: true, asLocalhost: true}, 
+            discovery: { enabled: true, as172.31.12.127: true}, 
         });
 
         // Get the network (channel) our contract is deployed to.

@@ -29,7 +29,7 @@ var post_data = JSON.stringify({
 
 var timestamp = new Date().getTime();
 var post_options = {
-  hostname: 'localhost',
+  hostname: '172.31.12.127',
   port    : '7050',
   path    : '/chaincode',
   method  : 'POST',

@@ -49,7 +49,7 @@ PeerOrgs:
     Template:
       Count: 1
       SANS:
-        - localhost
+        - 172.31.12.127
       # Start: 5
       # Hostname: {{.Prefix}}{{.Index}} # default
     # ---------------------------------------------------------------------------

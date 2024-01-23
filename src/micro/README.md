@@ -9,11 +9,11 @@ We provide several workloads to stress the layers in order to understand their i
   To use this workload,
   ```
   # Hyperledger
-  ./driver -db hyperledger -threads 1 -P workloads/workloada.spec -txrate 5 -endpoint localhost:7050/chaincode -wl donothing
+  ./driver -db hyperledger -threads 1 -P workloads/workloada.spec -txrate 5 -endpoint 172.31.12.127:7050/chaincode -wl donothing
   # Ehtereum
-  ./driver -db ethereum -threads 1 -P workloads/workloada.spec -txrate 5 -endpoint localhost:8545 -wl donothing -wt 20
+  ./driver -db ethereum -threads 1 -P workloads/workloada.spec -txrate 5 -endpoint 172.31.12.127:8545 -wl donothing -wt 20
   # Parity
-  ./driver -db parity -threads 1 -P workloads/workloada.spec -txrate 5 -endpoint localhost:8545 -wl donothing -wt 20
+  ./driver -db parity -threads 1 -P workloads/workloada.spec -txrate 5 -endpoint 172.31.12.127:8545 -wl donothing -wt 20
   ```
 
 * Data model layer - IOHeavy & Analytics

@@ -166,11 +166,11 @@ peer:
     # PKI member services properties
     pki:
         eca:
-            paddr: localhost:7054
+            paddr: 172.31.12.127:7054
         tca:
-            paddr: localhost:7054
+            paddr: 172.31.12.127:7054
         tlsca:
-            paddr: localhost:7054
+            paddr: 172.31.12.127:7054
         tls:
             enabled: false
             rootcert:
@@ -232,8 +232,8 @@ vm:
 
     # Endpoint of the vm management system.  For docker can be one of the following in general
     # unix:///var/run/docker.sock
-    # http://localhost:2375
-    # https://localhost:2376
+    # http://172.31.12.127:2375
+    # https://172.31.12.127:2376
     endpoint: unix:///var/run/docker.sock
 
     # settings for docker vms

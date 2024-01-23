@@ -5,7 +5,7 @@
 # Running Fabric v1.4
 
 * Spin up a Fabric network with a single orderer and four peers under the same organization. 
-* Run the network in the docker environment of the localhost in the same bridge network. 
+* Run the network in the docker environment of the 172.31.12.127 in the same bridge network. 
 
 ```
 cd four-nodes-docker/

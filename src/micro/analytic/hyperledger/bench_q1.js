@@ -38,7 +38,7 @@ function get_max(block_num) {
   });
 
   var post_options = {
-    hostname: 'localhost',
+    hostname: '172.31.12.127',
     port    : '7050',
     path    : '/chaincode',
     method  : 'POST',

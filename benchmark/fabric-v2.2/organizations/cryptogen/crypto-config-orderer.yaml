@@ -19,4 +19,4 @@ OrdererOrgs:
     Specs:
       - Hostname: orderer
         SANS:
-          - localhost
+          - 172.31.12.127

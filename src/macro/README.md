@@ -9,16 +9,16 @@ The driver in `kvstore` directory provides the following workloads:
 
   Usage example:
   ```
-  ./driver -db parity -threads 1 -P workloads/workloada.spec -txrate 5 -endpoint localhost:8545 -wl ycsb -wt 20
+  ./driver -db parity -threads 1 -P workloads/workloada.spec -txrate 5 -endpoint 172.31.12.127:8545 -wl ycsb -wt 20
   ```
 
 * KVStore: for Fabric 2.2
   * Spin up the network, create the channel, deploy the contract and launch the helper web services, as in [README](../../benchmark/fabric-v2.2/README.md) with the following two bash **variables** `CC_NAME=kvstore MODE=open_loop`.
-  * Prepare the endpoint `endpoint=[block-service-address],[txn-service-address1],[txn-service-address2]...`. Based on the configuration in [README](../../benchmark/fabric-v2.2/README.md) and assume helper services are run in the same machine as the client driver, `endpoint=localhost:8800,localhost:8801,localhost:8802`
+  * Prepare the endpoint `endpoint=[block-service-address],[txn-service-address1],[txn-service-address2]...`. Based on the configuration in [README](../../benchmark/fabric-v2.2/README.md) and assume helper services are run in the same machine as the client driver, `endpoint=172.31.12.127:8800,172.31.12.127:8801,172.31.12.127:8802`
   * Launch the client driver processes. Each client thread will randomly contact one of the transaction web service to invoke a transaction or make a query. 
   Usage example:
   ```
-  ./driver -db fabric-v2.2 -threads 1 -P workloads/workloada.spec -txrate 5 -endpoint localhost:8545 -wl ycsb -wt 20
+  ./driver -db fabric-v2.2 -threads 1 -P workloads/workloada.spec -txrate 5 -endpoint 172.31.12.127:8545 -wl ycsb -wt 20
   ```
 
 * KVStore: for Fabric 1.4
@@ -39,14 +39,14 @@ The driver in `kvstore` directory provides the following workloads:
   ```
   For example, if the driver is executed in the same machine as the above docker network, the command would be like: 
   ```
-  ./driver -db fabric-v1.4 -threads 16 -P workloads/workloada.spec -txrate 100 -endpoint localhost:7041,localhost:7051 -wl ycsb
+  ./driver -db fabric-v1.4 -threads 16 -P workloads/workloada.spec -txrate 100 -endpoint 172.31.12.127:7041,172.31.12.127:7051 -wl ycsb
   ```
 
 * DoNothing: for Ethereum, Parity , Quorum and Hyperledger
 
   Usage example:
   ```
-  ./driver -db hyperledger -threads 1 -txrate 5 -P workloads/workloada.spec -endpoint localhost:7050/chaincode -wl donothing
+  ./driver -db hyperledger -threads 1 -txrate 5 -P workloads/workloada.spec -endpoint 172.31.12.127:7050/chaincode -wl donothing
 
 * DoNothing: for Fabric 2.2
   * Repeat the above step as in KVStore, except that `$CC_NAME=donothing`.
@@ -73,7 +73,7 @@ The driver in `kvstore` directory provides the following workloads:
   ```
   For example, if the driver is executed in the same machine as the above docker network, the command would be like: 
   ```
-  ./driver -db fabric-v1.4 -threads 16 -P workloads/workloada.spec -txrate 100 -endpoint localhost:7041,localhost:7051 -wl donothing
+  ./driver -db fabric-v1.4 -threads 16 -P workloads/workloada.spec -txrate 100 -endpoint 172.31.12.127:7041,172.31.12.127:7051 -wl donothing
   ```
 
 The driver in `smallbank` directory provides the following workloads:
@@ -111,6 +111,6 @@ The driver in `smallbank` directory provides the following workloads:
   ```
   For example, if the driver is executed in the same machine as the above docker network, the command would be like: 
   ```
-  ./driver  -db fabric-v1.4 -ops 1000 -threads 4 -txrate 100 -fp stat.txt -endpoint localhost:7041,localhost:7051
+  ./driver  -db fabric-v1.4 -ops 1000 -threads 4 -txrate 100 -fp stat.txt -endpoint 172.31.12.127:7041,172.31.12.127:7051
   ```
 

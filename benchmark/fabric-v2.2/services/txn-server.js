@@ -68,7 +68,7 @@ async function getChannel(channelName, contractName) {
         await gateway.connect(ccp, 
             { 
             wallet, identity: 'appUser', 
-            discovery: { enabled: true, asLocalhost: true}, 
+            discovery: { enabled: true, as172.31.12.127: true}, 
             eventHandlerOptions: {
                 strategy: mode
             }  

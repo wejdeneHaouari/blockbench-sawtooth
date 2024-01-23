@@ -100,7 +100,7 @@ make
 
 For the default configuration and assume helper services are run in the same machine as the client driver use this endpoint configuration: 
 ```
- endpoint=localhost:9033,localhost:8000
+ endpoint=172.31.12.127:9033,172.31.12.127:8000
 ```
 
  5. Launch the client driver processes. Each client thread will randomly contact one of the transaction web service to invoke a transaction or make a query. Usage example:

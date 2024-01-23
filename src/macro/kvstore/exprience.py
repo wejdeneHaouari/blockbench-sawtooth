@@ -98,13 +98,13 @@ if __name__ == '__main__':
     target = sys.argv[1]
     if target == "-e":
         TARGET = "ethereum"
-        ENDPOINT = "localhost:8545"
+        ENDPOINT = "172.31.12.127:8545"
     elif target == "-f":
         TARGET = "fabric-v2.2"
-        ENDPOINT = "localhost:8800,localhost:8801"
+        ENDPOINT = "172.31.12.127:8800,172.31.12.127:8801"
     elif target == "-s":
         TARGET = "sawtooth-v1.2"
-        ENDPOINT = "localhost:9001,localhost:8000"
+        ENDPOINT = "172.31.12.127:9001,172.31.12.127:8000"
     else:
         print("argument must be -f -e or -s")
         sys.exit(-1)

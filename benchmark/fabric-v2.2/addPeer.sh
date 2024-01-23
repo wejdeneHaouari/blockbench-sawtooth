@@ -48,7 +48,7 @@ ORG="org${orgN}"
  echo
  echo "Generate the ${PEER} msp"
  echo
- fabric-ca-client enroll -u https://${PEER}:${PEER}pw@localhost:${CA_PORT} --caname ca-${ORG} -M ${PWD}/organizations/peerOrganizations/${ORG}.example.com/peers/${PEER}.${ORG}.example.com/msp --csr.hosts ${PEER}.${ORG}.example.com --tls.certfiles ${PWD}/organizations/fabric-ca/${ORG}/tls-cert.pem
+ fabric-ca-client enroll -u https://${PEER}:${PEER}pw@172.31.12.127:${CA_PORT} --caname ca-${ORG} -M ${PWD}/organizations/peerOrganizations/${ORG}.example.com/peers/${PEER}.${ORG}.example.com/msp --csr.hosts ${PEER}.${ORG}.example.com --tls.certfiles ${PWD}/organizations/fabric-ca/${ORG}/tls-cert.pem
  sleep 1
  cp ${PWD}/organizations/peerOrganizations/${ORG}.example.com/msp/config.yaml ${PWD}/organizations/peerOrganizations/${ORG}.example.com/peers/${PEER}.${ORG}.example.com/msp/config.yaml
 
@@ -56,7 +56,7 @@ ORG="org${orgN}"
  echo "Generate the ${PEER}-tls certificates"
  echo
  sleep 1
- fabric-ca-client enroll -u https://${PEER}:${PEER}pw@localhost:${CA_PORT} --caname ca-${ORG} -M ${PWD}/organizations/peerOrganizations/${ORG}.example.com/peers/${PEER}.${ORG}.example.com/tls --enrollment.profile tls --csr.hosts ${PEER}.${ORG}.example.com --csr.hosts localhost --tls.certfiles ${PWD}/organizations/fabric-ca/${ORG}/tls-cert.pem
+ fabric-ca-client enroll -u https://${PEER}:${PEER}pw@172.31.12.127:${CA_PORT} --caname ca-${ORG} -M ${PWD}/organizations/peerOrganizations/${ORG}.example.com/peers/${PEER}.${ORG}.example.com/tls --enrollment.profile tls --csr.hosts ${PEER}.${ORG}.example.com --csr.hosts 172.31.12.127 --tls.certfiles ${PWD}/organizations/fabric-ca/${ORG}/tls-cert.pem
  sleep 1
  cp ${PWD}/organizations/peerOrganizations/${ORG}.example.com/peers/${PEER}.${ORG}.example.com/tls/tlscacerts/* ${PWD}/organizations/peerOrganizations/${ORG}.example.com/peers/${PEER}.${ORG}.example.com/tls/ca.crt
  cp ${PWD}/organizations/peerOrganizations/${ORG}.example.com/peers/${PEER}.${ORG}.example.com/tls/signcerts/* ${PWD}/organizations/peerOrganizations/${ORG}.example.com/peers/${PEER}.${ORG}.example.com/tls/server.crt

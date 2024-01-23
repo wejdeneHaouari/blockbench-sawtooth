@@ -2,7 +2,7 @@ var Web3 = require('web3');
 var BigNumber = require('bignumber.js');
 
 var web3 = new Web3();
-web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'));
+web3.setProvider(new web3.providers.HttpProvider('http://172.31.12.127:8545'));
 
 var ioABI = [{"constant":true,"inputs":[{"name":"key","type":"bytes20"}],"name":"get","outputs":[{"name":"","type":"bytes"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"start_key","type":"uint256"},{"name":"size","type":"uint256"},{"name":"signature","type":"uint256"}],"name":"scan","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"start_key","type":"uint256"},{"name":"size","type":"uint256"},{"name":"signature","type":"uint256"}],"name":"revert_scan","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"start_key","type":"uint256"},{"name":"size","type":"uint256"},{"name":"signature","type":"uint256"}],"name":"write","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"key","type":"bytes20"},{"name":"value","type":"bytes"}],"name":"set","outputs":[],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"size","type":"uint256"},{"indexed":false,"name":"signature","type":"uint256"}],"name":"finishWrite","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"size","type":"uint256"},{"indexed":false,"name":"signature","type":"uint256"}],"name":"finishScan","type":"event"}];
 

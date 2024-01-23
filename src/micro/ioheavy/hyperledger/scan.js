@@ -5,7 +5,7 @@ var total_size = parseInt(process.argv[3]);
 function poll_block(height) {
 
   var get_options = {
-    hostname: 'localhost',
+    hostname: '172.31.12.127',
     port    : '7050',
     path    : '/chain/blocks/'+height,
     method  : 'GET',
@@ -48,7 +48,7 @@ function send_txn(star_key, batch_size) {
   // console.log(post_data);
 
   var post_options = {
-    hostname: 'localhost',
+    hostname: '172.31.12.127',
     port    : '7050',
     path    : '/chaincode',
     method  : 'POST',
@@ -85,7 +85,7 @@ var start_key;
 function poll_height() {
 
   var get_height_options = {
-    hostname: 'localhost',
+    hostname: '172.31.12.127',
     port    : '7050',
     path    : '/chain',
     method  : 'GET',

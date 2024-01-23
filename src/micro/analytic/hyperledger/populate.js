@@ -16,7 +16,7 @@ function gen_acc(n) {
 function poll_block(height) {
 
   var get_options = {
-    hostname: 'localhost',
+    hostname: '172.31.12.127',
     port    : '7050',
     path    : '/chain/blocks/'+height,
     method  : 'GET',
@@ -57,7 +57,7 @@ function invoke(func, args) {
   });
 
   var post_options = {
-    hostname: 'localhost',
+    hostname: '172.31.12.127',
     port    : '7050',
     path    : '/chaincode',
     method  : 'POST',
@@ -85,7 +85,7 @@ var target_block;
 function poll_height() {
 
   var get_height_options = {
-    hostname: 'localhost',
+    hostname: '172.31.12.127',
     port    : '7050',
     path    : '/chain',
     method  : 'GET',

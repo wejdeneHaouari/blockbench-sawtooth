@@ -27,7 +27,7 @@ function get_max(block_num) {
   });
 
   var post_options = {
-    hostname: 'localhost',
+    hostname: '172.31.12.127',
     port    : '8545',
     method  : 'POST',
     headers : {

@@ -55,16 +55,16 @@ As __txn-servers__ are contacted by the __Client_Thread__ of client drivers, and
 
 Below shows some example commands of web services. 
 ```
-curl http://localhost:8800/block?num=2
-curl http://localhost:8800/height
+curl http://172.31.12.127:8800/block?num=2
+curl http://172.31.12.127:8800/height
 
 curl --header "Content-Type: application/json" \
 --request POST \
 --data '{"function":"Write","args":["KK", "VV"]}' \
-http://localhost:8801/invoke
+http://172.31.12.127:8801/invoke
 
 
-curl "http://localhost:8801/query?function=Read&args=KK"
+curl "http://172.31.12.127:8801/query?function=Read&args=KK"
 ```
 
 # Clean up

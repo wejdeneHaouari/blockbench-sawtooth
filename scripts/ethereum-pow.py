@@ -7,7 +7,7 @@ from datetime import datetime
 
 use_cpu_utilization = True
 
-url = "http://localhost:8086/status"
+url = "http://172.31.12.127:8086/status"
 min_containers = 1
 max_containers = 6
 miner = "miner"

@@ -22,7 +22,7 @@ def parse_args(args):
     parser.add_argument(
         '-C', '--connect',
         help='The url of the validator to subscribe to',
-        default='tcp://localhost:4004')
+        default='tcp://172.31.12.127:4004')
 
     parser.add_argument(
         '--url',

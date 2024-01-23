@@ -3,8 +3,8 @@ export CORE_PEER_MSPCONFIGPATH=../../fabric-v1.4/four-nodes-docker/crypto_config
 export FABRIC_CFG_PATH=../../../../benchmark/fabric-v1.4/four-nodes-docker
 
 CHANNEL_NAME=rpcchannel
-ORDER_ADDR=localhost:7041
-PEER_ADDRS=( localhost:7051 localhost:6051 localhost:8051 localhost:9051) # Place anchor peer at head
+ORDER_ADDR=172.31.12.127:7041
+PEER_ADDRS=( 172.31.12.127:7051 172.31.12.127:6051 172.31.12.127:8051 172.31.12.127:9051) # Place anchor peer at head
 
 LANGUAGE=golang
 CC_SRC_PATH=../../../../benchmark/contracts/fabric-v1.4/analytic

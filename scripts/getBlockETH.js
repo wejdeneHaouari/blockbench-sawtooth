@@ -1,5 +1,5 @@
 var Web3 = require('web3');
-var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+var web3 = new Web3(new Web3.providers.HttpProvider("http://172.31.12.127:8545"));
 const start = 59;
 const end = 99;
 
